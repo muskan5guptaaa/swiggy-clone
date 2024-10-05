@@ -1,49 +1,4 @@
-import React from "react";
-import ReactDOM from "react-dom"
-
-
-const Header = () => {
-    return (
-      <div className="header">
-        <div className="logo-container">
-          <img
-            className="logo"
-            src="https://www.logodesign.net/logo/smoking-burger-with-lettuce-3624ld.png?nwm=1&nws=1&industry=fast-food&sf=&txt_keyword=All"
-            alt="Logo" 
-          />
-        </div>
-        
-        <div className="nav-items">
-          <ul>
-            <li>Home</li>
-            <li>About Us</li>
-            <li>Contact Us</li>
-            <li>Cart</li>
-          </ul>
-        </div>
-      </div>
-    );
-  };
- 
-  const ResturantCard=(props)=>{
-    const {resData}=props;
-    const{cloudinaryImageId,name,cuisines,costForTwo,deliveryTime,avgRating}=resData?.info
-    return(
-      <div className="res-card" style={{backgroundColor:"#f0f0f0"}}>
-        <img  className="res-logo"
-        alt="res-logo"
-        src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,h_600/FOOD_CATALOG/IMAGES/CMS/2024/4/17/853b95b2-89fb-46ff-84c7-eaca466b882a_d8df1d76-10d4-4bc4-9dd2-cfc1dd5155cc.jpg"
-        ></img>
-        <h3>{name}</h3>
-        <h4>{cuisines.join(",")}</h4>
-        <h4>{avgRating}stars</h4>
-        <h4>{costForTwo}</h4>
-        <h4>{deliveryTime}40 minutes</h4>
-       </div>
-    )
-  }
-
-  const resList= [
+const resList= [
     {
     "info": {
     "id": "385824",
@@ -675,34 +630,5 @@ const Header = () => {
       }
       }
   ]
-  const Body=()=>{
-    return(
- <div className="body">
-<div className="search">Search</div>
-<div className="res-container">
-  { resList.map(resturant=>
-  <ResturantCard key={resturant.info.id} resData={resturant}/>)
-  }
 
-
-
-  
-</div>
-      </div>
-    )
-  }
-  
-
-const AppLayout = ()=>{
-    return (
-        <div className="app">
-     <Header />
-     <Body/>
-
-        </div>
-    );
-};
-
-
-const root=ReactDOM.createRoot(document.getElementById("root"));
-root.render(<AppLayout />)
+  export default resList;
