@@ -12,10 +12,10 @@ const Body=()=>{
     className="filter-btn" 
     onClick={()=>{
     //filter logic here
-    const filteredList=listOfResturants.filter(
+    const filteredResturant=listOfResturants.filter(
       (res)=>res.data.avgRating > 4
     );
-    setListOfResturant(filteredList);
+    setListOfResturant(filteredResturant);
     }}
   
     >
@@ -26,10 +26,6 @@ const Body=()=>{
   { listOfResturants.map(resturant=>
   <ResturantCard key={resturant.info.id} resData={resturant}/>)
   }
-
-
-
-  
 </div>
       </div>
     )
