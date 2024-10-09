@@ -29,7 +29,7 @@ const fetchData= async()=>{
     const filteredList=listOfResturants.filter(
       (res)=>res.data.avgRating > 4
     );
-    setListOfResturant(filteredList);
+    setListOfResturant(filteredList)
     }}
   
     >
