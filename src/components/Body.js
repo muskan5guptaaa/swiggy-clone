@@ -1,9 +1,9 @@
 
 import ResturantCard from "./ResturantCard";
-
 import{useState,useEffect} from "react"
-const Body=()=>{
 
+
+const Body=()=>{
   const [listOfResturants,setListOfResturant]=useState([]);
 
    useEffect(()=>{
@@ -16,7 +16,7 @@ const fetchData= async()=>{
   )
   const json= await data.json();
   console.log(json);
-
+  
 }
 
   return(
