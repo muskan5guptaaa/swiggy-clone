@@ -10,7 +10,7 @@ import Header from "./components/Header.js";
     return (
         <div className="app">
      <Header />
-    
+     <Body/>
 
         </div>
     );
