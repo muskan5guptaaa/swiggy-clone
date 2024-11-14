@@ -6,7 +6,7 @@ const Header = () => {
         <div className="logo-container">
           <img
             className="logo"
-            src={LOGO_URL}
+            src={LOGO_URL} 
             alt="Logo" 
           />
         </div>
