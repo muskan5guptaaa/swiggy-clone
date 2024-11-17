@@ -1,12 +1,26 @@
 
 import ResturantCard from "./ResturantCard";
-import{useState} from "react"
+import{useEffect, useState} from "react"
 
 import resList from "../utils/mockData";
+import { json } from "react-router-dom";
 const Body=()=>{
   const [listOfResturants,setListOfResturant]=useState(resList);
 
-  return(
+   useEffect(()=>{
+    fetchData();
+   },[]); 
+
+   const fetchData = async () => {
+    const response = await fetch(
+      "https://www.swiggy.com/dapi/restaurants/list/v5?lat=25.3174112&lng=82.9738892&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING",
+      { mode: "no-cors" }
+    );
+  
+console.log(response)
+  };
+  
+     return(
  <div className="body">
 <div className="filter">
     <button 
