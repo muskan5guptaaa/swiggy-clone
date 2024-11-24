@@ -3,8 +3,12 @@ import ResturantCard from "./ResturantCard";
 import{useEffect, useState} from "react";
 import Shimmer from "./Shimmer";
 import { json } from "react-router-dom";
+
+
 const Body=()=>{
+  //Local State Variable -Super powerful vairable
   const [listOfResturants,setListOfResturant]=useState([]);
+  const[filteredResturant,setFilteredResturant]=useState([])
 const [searchText,setSearchText]=useState("")
    useEffect(()=>{
     fetchData();
@@ -18,6 +22,7 @@ const [searchText,setSearchText]=useState("")
     const json=await data.json();
     console.log(json);
      setListOfResturant(json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
+     setFilteredResturant(json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
   };
 
   //Conditional Rendering
@@ -38,8 +43,12 @@ const [searchText,setSearchText]=useState("")
     <button onClick={()=>{
       //Filter the resturant cars and update ui
       //searchText
-      console.log(searchText)
-    }}>Search</button>
+      console.log(searchText);
+      const filteredResturant=listOfResturants.filter((res)=> res.info.name.toLowerCase().includes(searchText.toLocaleLowerCase()))
+      setListOfResturant(filteredResturant)
+    }}
+    >
+      Search</button>
   </div>
     <button 
     className="filter-btn" 
@@ -56,7 +65,7 @@ const [searchText,setSearchText]=useState("")
         </button>
 </div>
 <div className="res-container">
-  { listOfResturants.map((resturant)=>(
+  {filteredResturant.map((resturant)=>(
   <ResturantCard key={resturant.info.id} resData={resturant}/>
 ))}
 </div>
