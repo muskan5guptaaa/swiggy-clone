@@ -10,6 +10,7 @@ const Body=()=>{
   const [listOfResturants,setListOfResturant]=useState([]);
   const[filteredResturant,setFilteredResturant]=useState([])
 const [searchText,setSearchText]=useState("")
+console.log("Body Rendered")
    useEffect(()=>{
     fetchData();
    },[]); 
@@ -21,34 +22,37 @@ const [searchText,setSearchText]=useState("")
     );
     const json=await data.json();
     console.log(json);
+    //Optional Chanining
      setListOfResturant(json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
      setFilteredResturant(json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
   };
 
   //Conditional Rendering
-    if(listOfResturants.length===0){
-    return <Shimmer/>
-  }
-
- 
   
      return  listOfResturants.length===0 ? (
      <Shimmer/>):(
  <div className="body">
 <div className="filter">
   <div className="search">
-    <input type="text" className="search-box" value={searchText} onChange={(e)=>{
+    <input 
+    type="text" 
+    className="search-box" 
+    value={searchText}
+     onChange={(e)=>{
       setSearchText(e.target.value)
     }}/>
-    <button onClick={()=>{
+    <button 
+    onClick={()=>{
       //Filter the resturant cars and update ui
       //searchText
       console.log(searchText);
-      const filteredResturant=listOfResturants.filter((res)=> res.info.name.toLowerCase().includes(searchText.toLocaleLowerCase()))
-      setListOfResturant(filteredResturant)
+      const filteredResturant=listOfResturants.filter((res)=>
+      res.info.name.toLowerCase().includes(searchText.toLowerCase()))
+      setFilteredResturant(filteredResturant)
     }}
     >
-      Search</button>
+      Search
+      </button>
   </div>
     <button 
     className="filter-btn" 
