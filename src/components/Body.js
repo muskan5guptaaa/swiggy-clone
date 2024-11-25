@@ -2,6 +2,8 @@
 import ResturantCard from "./ResturantCard";
 import{useEffect, useState} from "react";
 import Shimmer from "./Shimmer";
+import Header from "../components/Header"
+import About from "../components/About"
 import { json } from "react-router-dom";
 
 
