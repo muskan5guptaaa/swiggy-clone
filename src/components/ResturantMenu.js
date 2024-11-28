@@ -23,6 +23,7 @@ const ResturantMenu=()=>{
                 <li>Biryani</li>
                 <li>Burgers</li>
                 <li>Pasta</li>
+                <li>Chowmein</li>
             </ul>
         </div>
     )
