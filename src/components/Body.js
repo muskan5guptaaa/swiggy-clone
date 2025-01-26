@@ -46,7 +46,6 @@ console.log("Body Rendered")
     <button 
     onClick={()=>{
       //Filter the resturant cars and update ui
-      //searchText
       console.log(searchText);
       const filteredResturant=listOfResturants.filter((res)=>
       res.info.name.toLowerCase().includes(searchText.toLowerCase()))
@@ -59,8 +58,7 @@ console.log("Body Rendered")
     <button 
     className="filter-btn" 
     onClick={()=>{
-    //filter logic here
-    const filteredList=listOfResturants.filter(
+    const filteredList=listOfResturants.filter(//filter logic 
       (res)=>res.info.avgRating > 4
     );
     setListOfResturant(filteredList);
