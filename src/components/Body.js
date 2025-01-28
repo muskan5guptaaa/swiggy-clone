@@ -8,7 +8,6 @@ import { json } from "react-router-dom";
 
 
 const Body=()=>{
-  //Local State Variable -Super powerful vairable
   const [listOfResturants,setListOfResturant]=useState([]);
   const[filteredResturant,setFilteredResturant]=useState([])
 const [searchText,setSearchText]=useState("")
@@ -20,7 +19,6 @@ console.log("Body Rendered")
    const fetchData = async () => {
     const data = await fetch(
       "https://www.swiggy.com/dapi/restaurants/list/v5?lat=25.3174112&lng=82.9738892&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
-         
     );
     const json=await data.json();
     console.log(json);
@@ -30,7 +28,6 @@ console.log("Body Rendered")
   };
 
   //Conditional Rendering
-  
      return  listOfResturants.length===0 ? (
      <Shimmer/>):(
  <div className="body">
